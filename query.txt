@@ -1,0 +1,30 @@
+DECLARE @user varchar(25), @game int , @guess int;
+
+SET @user='matthew.peters';
+SET @game= 1 ;
+SET @guess= 0 ;
+	
+BEGIN
+	IF EXISTS (SELECT * FROM [userStats] WHERE userID=@user AND gameID=@game)
+		UPDATE [userStats]
+		SET timestamp=SYSDATETIME(), displayName=@user, score='0', rank='0', guess=@guess, confValue='100', teamIDPref='1', scoreDiff='0', spyPoints='0', defPoints='0'
+		WHERE userID=@user AND gameID=@game;
+	ELSE
+		INSERT INTO [userStats] ( userID, gameID, timeStamp, displayName, score, rank, guess, confValue, teamIDPref, scoreDiff, spyPoints, defPoints)
+		VALUES ( @user, @game, SYSDATETIME(), @user, '0', '0', @guess, '100', '1', '0', '0', '0');
+END
+
+
+
+
+
+
+
+update [user]
+set currentRank=0, currentScore=0;
+
+update [userStats]
+set rank=0, score=0, scoreDiff=0;
+
+update [game]
+set scoreOne=0, scoreTwo=0, scoreDiffOneTwo=0, scoreDiffTwoOne=0;
