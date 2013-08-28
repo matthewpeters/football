@@ -1,0 +1,141 @@
+priority:
+-add new report for user guesses after game close
+-change global error to redirect and email error
+-mobil compatibility
+
+BUGS:
+-multi same display names (do not allow)
+-onguess change after scores calc'd error (scores recalc just add the other scores)
+-if no votes error
+?-on display name change, change all references to your display name
+?-on delete self, must recalc rank
+
+GUI:
+all popups
+-dynamic center (recheck based on font change)
+-draggable
+-close button
+-no underline link
+-text formatting
+-buttons bolder
+-placeholders not values
+-color/paper theme
+-tooltips without icons (over areas)
+register popup
+-make popup support
+-fix button 
+redesign site
+-toolbar
+-output inline
+mobile site
+-buttons/actions
+-nopopups
+-inline output
+-responsive design/theme
+button hover change
+button icons
+button isactive
+
+ENGINE:
+-clean code
+-fcn list
+-workflow list
+-css format better
+-js format better
+-page format better
+-put all in css
+-load js listeners/etc
+-ajax callback
+--make for all
+-displaymessage messages
+-avatar support
+--choose from stock
+--eventual upload?
+---resize photos
+-spy points
+-defense points
+
+EVENTUAL
+-profile pages
+--abouts/links to
+--history 
+--gamification badges
+-open to public/external
+-stats
+-spy vulnerability
+-theme colors
+-saving personal prefs
+-change header pic color scheme
+-change background color scheme
+-feedback form (with votable suggestions)
+
+suggested:
+-
+-football email list
+-line players
+-quick pick
+-add message board (send message to user)
+-logout button (close window)
+-password field ******
+-user guess, display current guess on select
+-better global scoreboard matrix
+--display user guesses after the start time
+
+unsorted:
+-error messages
+-public access
+-mk classes
+-feedback form
+-popup intext boxes
+-contianer box images for forms
+-file upload avatar
+--make work
+--resizer
+-debug writer method
+-debug time load
+-clean code
+--css
+--writers
+--sql procedures
+--gateway
+-add goldstars
+-is win/loss
+-team pref ID for later
+-pages, (admin,user,reports,news/anon,support)
+-tooltips, form inline
+-tooltips, 'actions' layout
+-add nicer graphics to buttons
+-register user, dd team pref
+-admin, mod user, populate existing data
+-admin, mod game, option to recalc scores
+-admin, mod game, on select add current data
+-admin, add score, on select add current data
+-admin, add score, dynamic team ID
+-admin, add score, current scores
+-admin, delete users, games, teams, etc
+-admin, neg scores?
+-admin, auto gameID suggesting
+-admin, auto assign ID suggested
+-admin, add user/modify, role dd menu
+-admin, add group/modify
+-admin, add roles/modify
+-admin, add tooltip data
+-user, request group
+-user, request role
+-user, guess, say something before writer if nothing is open
+-layout, add message container background
+-remove underline from tooltips
+-add favicon
+-make overall font family/size in css
+-take underline off of tooltips
+-make method of assigning users that are playing and not (to make proper scores)
+-refresh reports after submitted anywahre
+-add all reports button
+-width of imputs not size
+-session stats save
+-save stats for analysis
+-create/save detailed logger for debugging later
+-make mobile compatible (or at least capable
+-error reporting
+-anon logon
+-convert into sobekCM format
