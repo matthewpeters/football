@@ -251,7 +251,7 @@ public partial class Dashboard : System.Web.UI.Page
                     change_season_view();
                     break;
                 case "action10":
-                    //expansion...
+                    save_message_clicked();
                     break;
                 case "action00":
                     TEMP_DELETE_SELF();
@@ -306,7 +306,8 @@ public partial class Dashboard : System.Web.UI.Page
 
     //...DROPDOWNS...
 
-  protected void change_season_view()
+    //EXPERIMENTAL, change the season
+    protected void change_season_view()
   {
     currentSeason = Convert.ToInt16(Request.Form["viewSeasonID"]);
   }
@@ -414,7 +415,7 @@ public partial class Dashboard : System.Web.UI.Page
     //user dropdown
     protected void create_user_dropdown()
     {
-        string usersDropdown = String.Empty;
+        string usersDropdown = "<option value=\"all\" size=\"8\" > Everyone </option><br />";
         int LDTI = 0;
         DataTable users = FootballDb_Gateway.SELECT_USER();
         do
@@ -1110,7 +1111,7 @@ public partial class Dashboard : System.Web.UI.Page
         userMessage = "User Updated.";
     }
 
-    //this is action 8
+    //this is button action 8
     protected void admin_new_season_clicked()
     {
     int tempSeason;
@@ -1132,6 +1133,20 @@ public partial class Dashboard : System.Web.UI.Page
     }
     
   }
+
+    //this is button action 9
+    //holder
+
+    //this is button action 10
+    protected void save_message_clicked()
+    {
+      string toUserID = Request.Form["a10toUserID"].ToString();
+      string[] tempTo = toUserID.Split(',');
+      toUserID = tempTo[0];
+      string fromUserID = user.Rows[0]["displayName"].ToString();
+      string messageContent = Request.Form["a10messageContent"].ToString();
+      FootballDb_Gateway.SAVE_MESSAGE(toUserID, fromUserID, messageContent);
+    }
 
     //this is button action 00
     protected void TEMP_DELETE_SELF()
@@ -1360,7 +1375,7 @@ public partial class Dashboard : System.Web.UI.Page
       {
         //start
         StringBuilder resultString = new StringBuilder();
-        resultString.AppendLine("<table style=\"font-size:10px;max-height:90%;width:100%;padding:2px;text-align:center;\">");
+        resultString.AppendLine("<table style=\"font-size:10px;max-height:90%;width:100%;padding:2px 2px 2px 2px;text-align:center;\">");
         
         int currentRowCount = 0;
         do //for each row
@@ -1415,7 +1430,7 @@ public partial class Dashboard : System.Web.UI.Page
 
     //...OTHER...
 
-    //personal scoreboard
+    //write messages
     public void write_messageboard()
     {
       //define local table
@@ -1431,11 +1446,13 @@ public partial class Dashboard : System.Web.UI.Page
         //begin looping through each row
         do
         {
+          string toUserID = userMessages.Rows[i]["toUserID"].ToString();
           string fromUserID = userMessages.Rows[i]["fromUserID"].ToString();
           string messageContent = userMessages.Rows[i]["messageContent"].ToString();
           string messageFlag = userMessages.Rows[i]["messageFlag"].ToString();
           if (messageFlag == "active")
           {
+            //resultString.AppendLine("   <li>Hey " + toUserID + "! " + fromUserID + " Says: \"" + messageContent + "\"</li>");
             resultString.AppendLine("   <li>" + fromUserID + " Says: \"" + messageContent + "\"</li>");
           }
           //iterate

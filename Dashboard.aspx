@@ -114,19 +114,6 @@
             <p style="clear:both;"></p>
         </div>
     </div>
-    
-    <div id="anonouncementsContainer">
-        <h4><a href="#" onclick="showHide('vis1');">Messages</a></h4>
-        <div id="vis1" style="display:block;">
-          <%write_messageboard(); %>
-            <%--<ul>
-                <li>Mobile version will launch soon!</li>
-                <li>Please email me with feedback and suggestions! (matthew.peters@ufl.edu)!</li>
-            </ul>--%>
-        </div>
-        <hr/>
-        <p>&nbsp;</p>
-    </div>
   
   <div id="navButtonContainer">
     <div class="navButtonGroup">
@@ -170,7 +157,7 @@
               <li><a onclick="showHide2('userGuess');">Make a Guess</a></li>
               <li><a onclick="showHide2('userProfile');">Manage Profile</a></li>
               <%--<li><a onclick="showHide2('userSpy');">Manage Spy Points</a></li>--%>
-              <%--<li><a onclick="showHide2('userMessage');">Manage Messages</a></li>--%>
+              <li><a onclick="showHide2('userMessage');">Manage Messages</a></li>
             </ul>
         </div>
       <p>&nbsp;</p>
@@ -178,8 +165,9 @@
             <a href="#"><h4>Reports</h4></a>
             <ul>  
               <li><a onclick="showHide2('report1');">Personal Scoreboard</a></li>
-              <li><a onclick="showHide2('report2');">Game Board</a></li>
-              <li><a onclick="showHide2('report3');">Global Scoreboard</a></li>
+              <li><a onclick="showHide2('report2');">Gameboard</a></li>
+              <li><a onclick="showHide2('report3');">Scoreboard</a></li>
+              <li><a onclick="showHide2('report4');">Guessboard</a></li>
             </ul>
             <p>&nbsp;</p>
         </div>
@@ -201,7 +189,7 @@
         </div>--%>
     </div>
 
-    <div id="actionsContainer" style="float:right;width:45%">
+    <div id="actionsContainer" style="float:left;width:45%;display:inline;">
         <div id="adminActionsContainer">
           
           <div id="adminNew" class="">
@@ -619,7 +607,7 @@
                 <tr>
                     <td style="text-align:right;">Send Message To:</td>
                     <td >
-                        <select id="a9toUserID" name="a9toUserID" style="background-color:antiquewhite;width:90px;">
+                        <select id="a10toUserID" name="a10toUserID" style="background-color:antiquewhite;width:130px;">
                             <% create_user_dropdown(); %>
                         </select>
                     </td>
@@ -630,13 +618,13 @@
                 </tr>
                 <tr>
                     <td colspan="2" style="text-align:right;">
-                        <textarea id="a9messageContent" name="a9messageContent" cols="25" rows="5" style="background:antiquewhite;" onclick="selectAll('a9messageContent');"></textarea>
+                        <textarea id="a10messageContent" name="a10messageContent" cols="25" rows="5" style="background:antiquewhite;" onclick="selectAll('a10messageContent');"></textarea>
                     </td>
                     <td><a href="javascript:void(0)" class="lytetip" data-tip="Messsage Content: Type your message here. It may only contain 400 characters."><img border="0" alt="help..." src="img/help_19x19.png"/></a></td>
                 </tr>
                 <tr>
                     <td colspan="2" style="text-align:right;">
-                        <input id="action9" name="action8" type="submit" value="Send" class="button2" onclick="return press(9);" />
+                        <input id="action10" name="action10" type="submit" value="Send" class="button2" onclick="return press(10);" />
                       </td>
                     <td></td>
                 </tr>
@@ -644,6 +632,15 @@
             </div>
 
         </div>
+    </div>
+  
+      <div id="anonouncementsContainer" style="float:right;width:50%;display:inline;">
+        <h4><a href="#" onclick="showHide('vis1');">Messages</a></h4>
+        <div id="vis1" style="display:block;">
+          <%write_messageboard(); %>
+        </div>
+        <hr/>
+        <p>&nbsp;</p>
     </div>
     
     <div style="clear:both;"></div>
@@ -658,21 +655,21 @@
         </div>
       
         <div id="report2" class="">
-            <h3><a href="javascript:void(0)" class="lytetip" data-tip="This report details all the games history">Game History</a></h3>
+            <h3><a href="javascript:void(0)" class="lytetip" data-tip="This report details all the games history.">Game History</a></h3>
             <% write_gameboard(); %>
             <%--<p>&nbsp;</p>--%>
         </div>
     
         <div id="report3" class="">
-            <h3><a href="javascript:void(0)" class="lytetip" data-tip="This report shows current placement of all users">Global Scoreboard</a></h3>
+            <h3><a href="javascript:void(0)" class="lytetip" data-tip="This report shows current placement of all users.">Global Scoreboard</a></h3>
             <% write_global_scoreboard(); %>
             <%--<p>&nbsp;</p>--%>
         </div>
       
         <div id="report4" class="">
-            <h3><a href="javascript:void(0)" class="lytetip" data-tip="This report displays all user guesses for all the games">Global Guessboard</a></h3>
+            <h3><a href="javascript:void(0)" class="lytetip" data-tip="This report displays all user guesses for all the games.">Global Guessboard</a></h3>
             <% write_guessboard(); %>
-            <p>&nbsp;</p>
+            <%--<p>&nbsp;</p>--%>
         </div>
     </div>
 

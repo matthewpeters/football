@@ -448,6 +448,24 @@ public static class FootballDb_Gateway
       connection.Close();
       return 0;
     }
+
+    public static int SAVE_MESSAGE(string toUserID, string fromUserID, string messageContent)
+    {
+      SqlConnection connection = new SqlConnection("data source=LIB-UFDC-CACHE\\UFDCPROD;initial catalog=Football;integrated security=Yes;");
+
+
+      SqlCommand cmd = new SqlCommand("SAVE_MESSAGE", connection);
+      cmd.CommandType = CommandType.StoredProcedure;
+
+      cmd.Parameters.AddWithValue("@toUserID", toUserID);
+      cmd.Parameters.AddWithValue("@fromUserID", fromUserID);
+      cmd.Parameters.AddWithValue("@messageContent", messageContent);
+      
+      connection.Open();
+      cmd.ExecuteNonQuery();
+      connection.Close();
+      return 0;
+    }
     
     public static int ADMIN_SAVE_USERSTATS_INFO(string userStatsID, int adminGameID, int adminSeasonID, int userStatsGameCurrentScore, int userStatsScoreDiff)
     {

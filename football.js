@@ -28,6 +28,7 @@ function init() {
     popups[9] = { name: "report1", width: 0, height: 0 };
     popups[10] = { name: "report2", width: 0, height: 0 };
     popups[11] = { name: "report3", width: 0, height: 0 };
+    popups[12] = { name: "report4", width: 0, height: 0 };
 
     for (var i = 0; i < popups.length; i++) {
       //assign popup information 
@@ -110,6 +111,7 @@ function closeAllPopups() {
   report1.style.display = "none";
   report2.style.display = "none";
   report3.style.display = "none";
+  report4.style.display = "none";
 }
 
 function showHide(id) {
