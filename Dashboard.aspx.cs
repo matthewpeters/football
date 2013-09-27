@@ -1181,7 +1181,7 @@ public partial class Dashboard : System.Web.UI.Page
         {
             //start and add table headers
             StringBuilder resultString = new StringBuilder();
-            resultString.AppendLine("<table style=\"width:100%;padding:2px;text-align:center;\">");
+            resultString.AppendLine("<table style=\"width:100%;padding:2px 2px 2px 2px;text-align:center;\">");
             resultString.AppendLine("   <tr>");
             resultString.AppendLine("       <td style=\"background:#DB9370\">Game</td>");
             resultString.AppendLine("       <td style=\"background:#DB9370\">Guess</td>");
@@ -1244,7 +1244,7 @@ public partial class Dashboard : System.Web.UI.Page
         {
             //start and add table headers
             StringBuilder resultString = new StringBuilder();
-            resultString.AppendLine("<table style=\"width:100%;padding:2px;text-align:center;\">");
+            resultString.AppendLine("<table style=\"width:100%;padding:2px 2px 2px 2px;text-align:center;\">");
             resultString.AppendLine("   <tr>");
             resultString.AppendLine("       <td style=\"background:#DB9370\">Game Desc</td>");
             //resultString.AppendLine("       <td style=\"background:#DB9370\">Description</td>");
@@ -1282,7 +1282,7 @@ public partial class Dashboard : System.Web.UI.Page
                 resultString.AppendLine("       <td>" + gameboardGameDesc + "</td>");  
                 //resultString.AppendLine("       <td>" + gameboardTeamOneID + " vs " + gameboardTeamTwoID + "</td>");
                 resultString.AppendLine("       <td>" + gameboardScoreOne + " / " + gameboardScoreTwo + "</td>");
-                resultString.AppendLine("       <td width='15%'>" + gameboardGameStartDateTime + "</td>");
+                resultString.AppendLine("       <td>" + gameboardGameStartDateTime + "</td>");
                 resultString.AppendLine("       <td>" + gameboardIsOpenTranslated + "</td>");
                 resultString.AppendLine("   </tr>");
                 //iterate
@@ -1312,7 +1312,7 @@ public partial class Dashboard : System.Web.UI.Page
         {
             //start and add table headers
             StringBuilder resultString = new StringBuilder();
-            resultString.AppendLine("<table style=\"max-height:90%;width:100%;padding:2px;text-align:center;\" class=\"sortable\">");
+            resultString.AppendLine("<table style=\"max-height:90%;width:100%;padding:2px 2px 2px 2px;text-align:center;\" class=\"sortable\">");
             resultString.AppendLine("   <tr>");
             resultString.AppendLine("       <td style=\"background:#DB9370\">Current Rank</td>");
             resultString.AppendLine("       <td style=\"background:#DB9370\">Current Score</td>");
@@ -1442,7 +1442,7 @@ public partial class Dashboard : System.Web.UI.Page
       {
         //start and add table headers
         StringBuilder resultString = new StringBuilder();
-        resultString.AppendLine(" <ul> ");
+        //resultString.AppendLine(" <ul> ");
         //begin looping through each row
         do
         {
@@ -1453,24 +1453,25 @@ public partial class Dashboard : System.Web.UI.Page
           if (messageFlag == "active")
           {
             //resultString.AppendLine("   <li>Hey " + toUserID + "! " + fromUserID + " Says: \"" + messageContent + "\"</li>");
-            resultString.AppendLine("   <li>" + fromUserID + " Says: \"" + messageContent + "\"</li>");
+            //resultString.AppendLine("   <li>" + fromUserID + " Says: \"" + messageContent + "\"</li>");
+              resultString.AppendLine("   <p style=\"margin:5px 0 5px 0;\"><strong>" + fromUserID + " Says:</strong> \"" + messageContent + "\"</p><hr/>");
           }
           //iterate
           i++;
         } while (userMessages.Rows.Count != i);
         //end and write table
-        resultString.AppendLine("</ul>");
+        //resultString.AppendLine("</ul>");
         string messageboard_string = string.Empty;
         messageboard_string = resultString.ToString();
         Response.Output.Write(messageboard_string);
       }
       else
       {
-        Response.Write("<ul><li>No Messages To Display</li></ul>");
+          Response.Write("<p>No Messages To Display</p>");
+          //Response.Write("<ul><li>No Messages To Display</li></ul>");
       }
     }
-  
-
+    
     //...DEBUGGER...
 
     //2do: add debug writer here

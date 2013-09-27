@@ -153,22 +153,16 @@
         </div>
         <div id="buttonsUser">
             <a href="#"><h4>Actions</h4></a>
-            <ul>  
-              <li><a onclick="showHide2('userGuess');">Make a Guess</a></li>
-              <li><a onclick="showHide2('userProfile');">Manage Profile</a></li>
-              <%--<li><a onclick="showHide2('userSpy');">Manage Spy Points</a></li>--%>
-              <li><a onclick="showHide2('userMessage');">Manage Messages</a></li>
-            </ul>
+            <a onclick="showHide2('userGuess');"><img src="img/buttons2/button-user-guess2.png" title="Make a Guess"/></a>&nbsp;
+            <a onclick="showHide2('userProfile');"><img src="img/buttons2/button-user-profile2.png" title="Manage Profile"/></a>&nbsp;
+            <a onclick="showHide2('userMessage');"><img src="img/buttons2/button-user-messages.png" title="Manage Messages" /></a>
         </div>
       <p>&nbsp;</p>
         <div id="buttonsReports">
             <a href="#"><h4>Reports</h4></a>
-            <ul>  
-              <li><a onclick="showHide2('report1');">Personal Scoreboard</a></li>
-              <li><a onclick="showHide2('report2');">Gameboard</a></li>
-              <li><a onclick="showHide2('report3');">Scoreboard</a></li>
-              <li><a onclick="showHide2('report4');">Guessboard</a></li>
-            </ul>
+            <a onclick="showHide2('report2');"><img src="img/buttons2/button-report2.png" title="Gameboard" /></a>&nbsp;
+            <a onclick="showHide2('report3');"><img src="img/buttons2/button-report3.png" title="Scoreboard" /></a>&nbsp;
+            <a onclick="showHide2('report4');"><img src="img/buttons2/button-report4.png" title="Guessboard" /></a>
             <p>&nbsp;</p>
         </div>
       <%--<div id="buttonsUser">
@@ -463,6 +457,7 @@
         </div>
         <div id="userActionsContainer">
             <div id="userProfile" class="">
+                <div style="color:#a6a6a6;position:absolute;margin-top:-40px;margin-left:92%;" onclick="closeAllPopups();">x</div>
                 <h4>Your Profile</h4>
                 <table style="float:left;">
                     <tr>
@@ -548,6 +543,7 @@
             </div>
 
             <div id="userGuess" class="">
+                <div style="color:#a6a6a6;position:absolute;margin-top:-40px;margin-left:92%;" onclick="closeAllPopups();">x</div>
                 <h3>Your Guess</h3>
                 <table style="float:left;">
                     <tr>
@@ -602,6 +598,7 @@
             </div>
           
           <div id="userMessage" class="">
+              <div style="color:#a6a6a6;position:absolute;margin-top:-40px;margin-left:92%;" onclick="closeAllPopups();">x</div>
               <h4>Message Management</h4>
                 <table style="float:left;">
                 <tr>
@@ -639,7 +636,7 @@
         <div id="vis1" style="display:block;">
           <%write_messageboard(); %>
         </div>
-        <hr/>
+        <%--<hr/>--%>
         <p>&nbsp;</p>
     </div>
     
@@ -655,12 +652,14 @@
         </div>
       
         <div id="report2" class="">
+            <div style="color:#a6a6a6;position:absolute;margin-top:-40px;margin-left:92%;" onclick="closeAllPopups();">x</div>
             <h3><a href="javascript:void(0)" class="lytetip" data-tip="This report details all the games history.">Game History</a></h3>
             <% write_gameboard(); %>
             <%--<p>&nbsp;</p>--%>
         </div>
     
         <div id="report3" class="">
+            <div style="color:#a6a6a6;position:absolute;margin-top:-40px;margin-left:92%;" onclick="closeAllPopups();">x</div>
             <h3><a href="javascript:void(0)" class="lytetip" data-tip="This report shows current placement of all users.">Global Scoreboard</a></h3>
             <% write_global_scoreboard(); %>
             <%--<p>&nbsp;</p>--%>
@@ -668,6 +667,11 @@
       
         <div id="report4" class="">
             <h3><a href="javascript:void(0)" class="lytetip" data-tip="This report displays all user guesses for all the games.">Global Guessboard</a></h3>
+            <% write_guessboard(); %>
+            <%--<p>&nbsp;</p>--%>
+        </div>
+        <div id="report4-copy" class="">
+            <h3><a href="javascript:void(0)" class="lytetip" data-tip="This report displays all user guesses for all the games." style="z-index:2;">Global Guessboard</a></h3>
             <% write_guessboard(); %>
             <%--<p>&nbsp;</p>--%>
         </div>

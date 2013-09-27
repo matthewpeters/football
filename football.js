@@ -94,7 +94,6 @@ function getUserGuess(selectedGameGuess) {
   } else {
     document.getElementById("guess").value = selectedGameGuess;
   }
-  
 }
 
 function closeAllPopups() {
@@ -112,10 +111,10 @@ function closeAllPopups() {
   report2.style.display = "none";
   report3.style.display = "none";
   report4.style.display = "none";
+  document.getElementById("blanket").style.display = "none";
 }
 
 function showHide(id) {
-  
   if (id == "popups") {
     closeAllPopups();
   } else {
@@ -125,8 +124,7 @@ function showHide(id) {
     else
       e.style.display = 'block';
   }
-
-  
+  document.getElementById("blanket").style.display = "none";
 }
 
 function showHide2(id) {
@@ -134,7 +132,7 @@ function showHide2(id) {
   if (e.style.display == 'block') {
     de("closing " + id);
     e.style.display = 'none';
-  }
+}
   else {
     
     //opening div
